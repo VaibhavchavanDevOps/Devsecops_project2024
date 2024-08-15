@@ -1,20 +1,18 @@
 # Stage 1: Build the application
-FROM adoptopenjdk/openjdk11:alpine-slim AS build
+FROM maven:3.8.6-openjdk-11-slim AS build
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Maven wrapper and the pom.xml file into the container
-COPY mvnw .
-COPY .mvn .mvn
+# Copy the pom.xml file into the container
 COPY pom.xml .
 
-# Download the dependencies and build the application
-RUN ./mvnw dependency:go-offline
+# Download the dependencies
+RUN mvn dependency:go-offline
 
 # Copy the source code and package the application
 COPY src src
-RUN ./mvnw package -DskipTests
+RUN mvn package -DskipTests
 
 # Stage 2: Create the final runtime image
 FROM adoptopenjdk/openjdk11:alpine-slim
