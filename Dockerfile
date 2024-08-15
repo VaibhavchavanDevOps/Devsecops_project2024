@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM adoptopenjdk/openjdk11:alpine-slim as build
+FROM adoptopenjdk/openjdk11:alpine-slim AS build
 
 # Set the working directory inside the container
 WORKDIR /app
