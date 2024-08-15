@@ -37,3 +37,17 @@ USER javauser
 
 # Specify the command to run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+RUN ping -c 4 google.com
+
+
+
+
+<mirrors>
+    <mirror>
+        <id>central</id>
+        <mirrorOf>central</mirrorOf>
+        <url>https://repo.yourcompany.com/maven2/</url> <!-- Replace with your mirror URL -->
+    </mirror>
+</mirrors>
+
