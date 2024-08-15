@@ -43,13 +43,3 @@ RUN ping -c 4 google.com
 COPY /path/to/local/.m2 /root/.m2
 
 COPY settings.xml /root/.m2/settings.xml
-
-
-<mirrors>
-    <mirror>
-        <id>central</id>
-        <mirrorOf>central</mirrorOf>
-        <url>https://repo.yourcompany.com/maven2/</url> <!-- Replace with your mirror URL -->
-    </mirror>
-</mirrors>
-
