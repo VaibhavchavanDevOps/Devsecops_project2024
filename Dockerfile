@@ -40,7 +40,9 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 RUN ping -c 4 google.com
 
+COPY /path/to/local/.m2 /root/.m2
 
+COPY settings.xml /root/.m2/settings.xml
 
 
 <mirrors>
