@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.6-openjdk-11-slim AS build
+FROM maven:3.9.8-openjdk-11-slim AS build
 
 # Set the working directory inside the container
 WORKDIR /app
