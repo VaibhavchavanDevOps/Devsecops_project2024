@@ -43,3 +43,11 @@ RUN ping -c 4 google.com
 #COPY /path/to/local/.m2 /root/.m2
 
 #COPY settings.xml /root/.m2/settings.xml
+
+# Copy a custom settings.xml with a mirror configuration
+COPY settings.xml /root/.m2/settings.xml
+
+# Example of running with retry
+RUN mvn -fae --fail-at-end --batch-mode clean dependency:go-offline || \
+    (echo "Retrying Maven command after failure..." && sleep 5 && mvn clean dependency:go-offline)
+
